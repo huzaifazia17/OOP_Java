@@ -1,6 +1,8 @@
 package com.company;
+import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Scanner;
+import java.text.NumberFormat;
 
 public class Main {
 
@@ -12,14 +14,26 @@ public class Main {
         // Question 1
         System.out.println("Question 1: ");
         question1();
+        System.out.println("");
 
         // Question 2
         System.out.println("Question 2: ");
         Rank();
+        System.out.println("");
 
         // Question 3
         System.out.println("Question 3: ");
         diceRoll();
+        System.out.println("");
+
+        // Question 4
+        System.out.println("Question 4: ");
+        question4();
+        System.out.println("");
+
+        // Question 5
+        System.out.println("Question 5: ");
+        question5();
     }
 
     //Question 1
@@ -68,5 +82,58 @@ public class Main {
         System.out.println("Dice 1 rolled: " + rand1);
         System.out.println("Dice 2 rolled: " + rand2);
         System.out.println("The total is: " + (rand1 + rand2));
+    }
+    public static void question4()
+    {
+        double x1, y1, x2, y2; // coordinates of two points
+        double distance; // distance between the points
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println ("Enter the coordinates of the first point " +
+                "(put a space between them): ");
+
+        x1 = scan.nextDouble();
+        y1 = scan.nextDouble();
+
+        System.out.println ("Enter the coordinates of the second point: " +
+                " (put a space between them): ");
+
+        x2 = scan.nextDouble();
+        y2 = scan.nextDouble();
+
+        double total = Math.sqrt((Math.pow((x1-x2),2)) + (Math.pow((y1-y2),2)));
+
+        System.out.println("The distance between teh two points is " + total);
+    }
+
+    public static void question5(){
+        final double OUNCES_PER_POUND = 16.0;
+        double pricePerPound; // price per pound
+        double weightOunces; // weight in ounces
+        double weight; // weight in pounds
+        double totalPrice; // total price for the item
+        Scanner scan = new Scanner(System.in);
+
+        NumberFormat money = NumberFormat.getCurrencyInstance();
+        DecimalFormat fmt = new DecimalFormat("0.##");
+
+        System. out. println ("Welcome to the CS Deli! ! \n ");
+
+        System.out.print ("Enter the price per pound of your item: ");
+        pricePerPound = scan.nextDouble();
+
+        System.out.print ("Enter the weight (ounces): ");
+        weightOunces = scan.nextDouble();
+
+        weight = weightOunces / OUNCES_PER_POUND;
+        totalPrice = pricePerPound * weight;
+
+        System.out.println("");
+        System.out.println("***** CSDELI *****");
+        System.out.println("");
+        System.out.println("Unit Price: " + money.format(pricePerPound) + " per pound");
+        System.out.println("Weight: " + fmt.format(weight) + " pounds");
+        System.out.println("");
+        System.out.println("TOTAL: " + money.format(totalPrice));
     }
 }
