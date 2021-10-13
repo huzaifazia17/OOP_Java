@@ -1,3 +1,6 @@
+// Huzaifa Zia-100779087
+// Assignment 1- Version 1
+
 import java.util.Scanner;
 
 public class isTriangle {
@@ -5,6 +8,7 @@ public class isTriangle {
         Scanner scan = new Scanner(System.in);
 
         // FIRST LINE POINTS
+        // Ask user to input x and y values for all points
 
         System.out.println("\nEnter the points of the first Line: \n");
 
@@ -12,7 +16,7 @@ public class isTriangle {
         double x1 = scan.nextDouble();
         System.out.println("Insert the y value of the first point");
         double y1 = scan.nextDouble();
-        Point point1 = new Point(x1, y1);
+        Point point1 = new Point(x1, y1); // construct new point with x and y values
 
         System.out.println("Insert the x value of the Second point");
         double x2 = scan.nextDouble();
@@ -20,8 +24,9 @@ public class isTriangle {
         double y2 = scan.nextDouble();
         Point point2 = new Point(x2, y2);
 
+        // construct new line with points
         Line line1 = new Line(point1, point2);
-
+        // Get te length of each line in this case- Line 1
         double line1Length = line1.getLength();
 
         // SECOND LINE POINTS
@@ -64,18 +69,23 @@ public class isTriangle {
 
         double line3Length = line3.getLength();
 
+        // Check if the lines satisfy Triangle Inequality Theorem
         boolean theoremCheck = checkTheorem(line1Length, line2Length, line3Length);
 
+        // Output result
         if (theoremCheck == true) {
             System.out.println(
                     "Your points in the triangle satisfy the Triangle Inequality Theorem. A Triangle can be built");
         } else {
             System.out.println(
-                    "Your points in the triangle does not satisfy the Triangle Inequality Theorem. A Triangle cannot be built");
+                    "Your points in the triangle do not satisfy the Triangle Inequality Theorem. A Triangle cannot be built");
         }
 
     }
 
+    // Function to check if the lines satisfy Triangle Inequality Theorem
+    // Will check to see if any 2 lines have a smaller length than the third line,
+    // If so then return false.
     public static boolean checkTheorem(double line1Length, double line2Length, double line3Length) {
         double sum1_2, sum1_3, sum2_3;
         sum1_2 = line1Length + line2Length;

@@ -2,6 +2,7 @@ public class Point {
     private double point_x;
     private double point_y;
 
+    // Create constructor
     public Point(double x, double y) {
         point_x = x;
         point_y = y;

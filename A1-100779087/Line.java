@@ -3,6 +3,7 @@ public class Line {
     private Point p1;
     private Point p2;
 
+    // Create Constructor
     public Line(Point p1, Point p2) {
         this.p1 = p1;
         this.p2 = p2;
@@ -26,6 +27,7 @@ public class Line {
         this.p2 = p2;
     }
 
+    // Class method to find length of the line
     public double getLength() {
         return Math.sqrt(((p2.getX() - p1.getX()) * (p2.getX() - p1.getX()))
                 + ((p2.getY() - p1.getY()) * (p2.getY() - p1.getY())));
